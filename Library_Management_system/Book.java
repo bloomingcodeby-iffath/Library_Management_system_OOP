@@ -6,7 +6,7 @@ public  class Book extends LibraryItem implements Borrowable {
     private double price;
     private boolean isBorrowed;
     //Constructor:
-    Book(String isbn,String title,double price) {
+    Book(String isbn,String title,double price) throws InvalidPriceException{
         setIsbn(isbn);
         setTitle(title);
         setPrice(price);
@@ -24,8 +24,8 @@ public  class Book extends LibraryItem implements Borrowable {
         return price;
     }
 
-    public void setPrice(double price) {
-        if(price<0) System.out.println("Please enter a valid price");//Encapsulation
+    public void setPrice(double price) throws InvalidPriceException{
+        if(price<0) throw new InvalidPriceException("Price cant be nagetive");//Encapsulation
         else this.price = price;
     }
 
