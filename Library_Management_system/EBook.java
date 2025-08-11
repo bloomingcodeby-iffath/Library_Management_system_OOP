@@ -2,7 +2,7 @@ package Library_Management_system;
 
 public class EBook extends Book{
     private  int fileSize;
-    EBook(String isbn,String title,double price,int  fileSize){
+    EBook(String isbn,String title,double price,int  fileSize) throws InvalidPriceException{
         super(isbn, title, price);
         this.fileSize=fileSize;
     }
