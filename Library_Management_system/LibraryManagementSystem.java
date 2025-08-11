@@ -8,9 +8,13 @@ public class LibraryManagementSystem {
         b.borrowBook();
         b.returnBook();
 
-        double p=5000;
-        if (p<0) throw new InvalidPriceException("Invalid Price");
-        else b.setPrice(p);
+        try {
+            double p=-5000;
+            b.setPrice(p);
+        }catch (InvalidPriceException e){
+            System.out.println("Exception fount: "+e.getMessage());
+        }
+
 
         EBook eb=new EBook("444-77-6","The Art of Thinking Clearly",40,55);
         eb.BookInfo();
